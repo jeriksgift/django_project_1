@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: django
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn your_project_name.wsgi"
+    preDeployCommand: "python manage.py migrate && echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'adminpass') if not User.objects.filter(username='admin').exists() else None\" | python manage.py shell"
