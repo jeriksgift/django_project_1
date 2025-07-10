@@ -1,13 +1,13 @@
 services:
   - type: web
-    name: django
+    name: members
     env: python
-    buildCommand: "cd backend && pip install -r requirements.txt"
-    startCommand: "cd backend && gunicorn backend.wsgi:application"
-    preDeployCommand: >
-      python manage.py migrate &&
-      echo "from django.contrib.auth import get_user_model;
-      User = get_user_model();
-      print('User exists:', User.objects.filter(username='admin').exists());
-      if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')" | python manage.py shell
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && gunicorn backend.wsgi
+    preDeployCommand: |
+      cd backend
+      python manage.py makemigrations
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+      echo "from django.contrib.auth.models import User;
+      User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')" | python manage.py shell
