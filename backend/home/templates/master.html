@@ -1,0 +1,15 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<head>
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Members Table with django</h1>
+    </header>
+    {% block content %} {% endblock %}
+</body>
+</html>

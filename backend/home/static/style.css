@@ -1,0 +1,48 @@
+body{
+    color: whitesmoke;
+    background-color: #1a1a1a;
+}
+a{
+    color: whitesmoke;
+}
+header{
+    background-color: hsl(0, 0%, 7.5%);
+    border-radius: 25px; 
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+th{
+    background-color: hsl(0, 0%, 7.5%);
+}
+td{
+    background-color: hsl(0, 0%, 9%);
+}
+th, td {
+    border: 1px solid wheat;
+    border-radius: 10px;
+    padding: 20px;
+}
+.members-table{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+}
+.details{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+section{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

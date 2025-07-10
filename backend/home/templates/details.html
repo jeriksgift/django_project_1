@@ -1,0 +1,20 @@
+{% extends "master.html"%}
+
+{% block title %}
+User Detail
+{% endblock %}
+
+{% block content %}
+    <div class="details">
+        Name: {{x.f_name}} {{x.l_name}}
+        <br>
+        Phone: {{x.phone}}
+        <br>
+        Date Of Birth: {{x.dob}}
+        <br>
+        Email: {{x.email}}
+        <br>
+        Occupation: {{x.occupation}}
+    </div>
+    <a href="/">Return home</a>
+{% endblock %}
