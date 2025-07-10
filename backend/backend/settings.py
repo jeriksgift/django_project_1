@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv() 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2wam+3u_m2z-=j-te+oeh#wxn79@$dp14f6!umai!6xxfp=e#b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'members-jeriks.onrender.com']
 
@@ -76,18 +78,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'members_5inw',                   # From "Database"
-        'USER': 'members_5inw_user',              # From "Username"
-        'PASSWORD': '8nwxxZTEbCmSMdIU9uwlzX2s71E4TlgR',         # From "Password" (click eye to view & copy)
-        'HOST': 'dpg-d1nu23s9oc44c73epq5q0-a',     # From "Hostname"
-        'PORT': '5432',                           # From "Port"
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
